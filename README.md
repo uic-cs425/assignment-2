@@ -3,7 +3,7 @@
 ## Assignment 2: Shadow maps
 The goal of this assignment is to implement the shadow mapping technique using WebGL. Also considering what we have learned in assignment 1, you will develop an application to render shadows (directional light) on an urban setting described in an external JSON file (uploaded by the user through a configuration panel). The JSON file has four layers describing the elements and color of buildings, parks, water and surface of a particular region (see below for a complete description of the file). Just like assignment 1, you should use a unique buffer and VAO for *each* layer.
 
-There are five tasks, and you are free to use the skeleton code provided. The code has some comments detailing what needs to be implemented in each function; it contains functions to handle file upload, and user interactions through the control panel, as well as four main classes:
+There are five tasks (plus two optional tasks), and you are free to use the skeleton code provided. The code has some comments detailing what needs to be implemented in each function; it contains functions to handle file upload, and user interactions through the control panel, as well as four main classes:
 - `FBO`: handles the creation and binding of [framebuffer objects](https://developer.mozilla.org/en-US/docs/Web/API/WebGLFramebuffer).
 - `ShadowMapProgram`: handles the shadow map computation, including light space transformations.
 - `RenderToScreenProgram`: handles the rendering of a 2D texture to the screen.
@@ -21,8 +21,9 @@ Here is an example of assignment 2:
 #### Task 1
 Create a configuration panel with the following components: 
 1) A [dropdown](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option) menu with values *perspective* and *orthographic*. Changing the selected option should change the projection type (see Task 5).
-2) A [checkbox input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox) element responsible for toggling the display of the shadow map texture.
-3) A file [input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file) element responsible for loading a JSON file (see Task 2).
+2) One [slider](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range) with value between 0 and 360. This slider should change the light direction around the centerpoint of the model (see Task 4).
+3) A [checkbox input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox) element responsible for toggling the display of the shadow map texture.
+4) A file [input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file) element responsible for loading a JSON file (see Task 2).
 
 #### Task 2
 In order to handle layers, you should implement the `init` and `draw` functions in the `Layer` class. Two important notes: 1) there is only one layer class (for both flat surfaces and buildings); you should then handle this appropriately; 2) you should create both a `LayerProgram` as well as a `ShadowMapProgram`; and you should use one or the other depending if it is the first or second pass of the shadow map technique.
@@ -33,7 +34,7 @@ You should implement the transformation matrices inside `updateViewMatrix`, `upd
 ![Assignment 2 example](manhattan.png)
 
 #### Task 4
-You should implement the light transformation matrices inside `updateLightViewMatrix` and `updateLightProjectionMatrix`, in such a way that when the user changes the value of slider (3), the light direction rotates around the centerpoint of the layers. Make sure that you use the *same light direction for both shadow map and surface shading* (for layers that have normals). As seein in class, these matrices should be used in the *first* pass of the shadow map technique.
+You should implement the light transformation matrices inside `updateLightViewMatrix` and `updateLightProjectionMatrix`, in such a way that when the user changes the value of slider (2), the light direction rotates around the centerpoint of the layers. Make sure that you use the *same light direction for both shadow map and surface shading* (for layers that have normals). As seein in class, these matrices should be used in the *first* pass of the shadow map technique.
 
 #### Task 5
 In order to ensure that you have successfully implemented tasks 3 and 4, make sure that you can seperately render the city model from the perspective of the camera and the light. After that, you will need to store the result of task 4 in a texture (make use of a framebuffer object to do that). Modify your implementation of task 3 so that it uses this depth texture to compute the shadow information in the fragment shader. Here is an example of the result:
