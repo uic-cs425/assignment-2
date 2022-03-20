@@ -91,7 +91,6 @@ The delivery of the assignments will be done using GitHub Classes. It will not b
 - gl.js: assignment main source code.
 - \*.vert.js: vertex shaders.
 - \*.frag.js: fragment shaders.
-- README.md and image files: markdown readme file with a description of your program.
 
 ### Grading
 The code will be evaluated on Firefox. Your submission will be graded according to the quality of the image results, interactions, and correctness of the implemented algorithms.
