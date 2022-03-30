@@ -29,7 +29,7 @@ Create a configuration panel with the following components:
 In order to handle layers, you should implement the `init` and `draw` functions in the `Layer` class. Two important notes: 1) there is only one layer class (for both flat surfaces and buildings); you should then handle this appropriately; 2) you should create both a `LayerProgram` as well as a `ShadowMapProgram`; and you should use one or the other depending if it is the first or second pass of the shadow map technique.
 
 #### Task 3
-You should implement the transformation matrices inside `updateViewMatrix`, `updateModelMatrix`, and `updateProjectionMatrix`, in such a way that when the usermoves the mouse around the canvas, the camera rotates around the centerpoint of the layers. This is similar to what was implemented in the first assignment. The initial position of the camera should be similar to the image below:
+You should implement the transformation matrices inside `updateViewMatrix`, `updateModelMatrix`, and `updateProjectionMatrix`, in such a way that when the user moves the mouse around the canvas, the camera rotates around the centerpoint of the layers. This is similar to what was implemented in the first assignment. The initial position of the camera should be similar to the image below:
 
 ![Assignment 2 example](manhattan.png)
 
