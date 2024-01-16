@@ -1,4 +1,4 @@
-# CS425 - Computer Graphics I (Spring 2022)
+# CS425 - Computer Graphics I
 
 ## Assignment 2: Shadow maps
 The goal of this assignment is to implement the shadow mapping technique using WebGL. Also considering what we have learned in assignment 1, you will develop an application to render shadows (directional light) on an urban setting described in an external JSON file (uploaded by the user through a configuration panel). The JSON file has four layers describing the elements and color of buildings, parks, water and surface of a particular region (see below for a complete description of the file). Just like assignment 1, you should use a unique buffer and VAO for *each* layer.
