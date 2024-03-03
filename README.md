@@ -41,12 +41,12 @@ In order to ensure that you have successfully implemented tasks 3 and 4, make su
 
 ![Manhattan shadow](manhattan.gif)
 
-#### Task 6 (Optional)
+#### Task 6 (Extra)
 You should implement the RenderToScreen class, so that it renders a texture to screen. If the input (5) is checked, you should display the result of the first pass of the shadow map computation (Task 4). 
 
 ![Shadow map](shadowmap.gif)
 
-#### Task 7 (Optional)
+#### Task 7 (Extra)
 Instead of considering a single shadow map sample, consider multiple shadow map values in a small radius around the sample position (*percentage closer filtering*). The result of these shadow tests should be averaged, getting a smoother line between light and shadow.
 
 #### JSON format
